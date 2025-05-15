@@ -1,0 +1,153 @@
+
+var x = 7;
+
+    function getName(){
+        console.log("Heloo js")
+    }
+
+getName()
+console.log(x)
+
+output
+   Heloo js                    script.js:6 
+   7                           script.js:10 
+
+---------------------------------------------------------
+
+
+getName()
+console.log(x)
+
+var x = 7;
+
+    function getName(){
+        console.log("Heloo js")
+    }
+
+
+output
+   Heloo js                            script.js: 9
+   undefined                           script.js:3 
+
+------------------------------------------------------------   
+
+getName()
+console.log(x)
+console.log(getName)
+
+
+var x = 7;
+
+    function getName(){
+        console.log("Heloo js")
+    }
+
+output
+   Heloo js                            script.js: 9
+   undefined                           script.js:3 
+   function getName(){                 script.js:4
+    console.log("Heloo js")
+    }
+
+
+ithil nammal  topic x viliumbol undefined kanikunn and function aaya getname() vilikumbo function kitunn undefined alla lanikunnath 
+function aavumbo; get actual copy of getNamefunction
+------------------------------------------------------------   
+
+getName()
+console.log(x) here show error uncaught ReffrenceError karanam nammal x varriable decre cheythittilla
+console.log(getName)
+
+
+
+    function getName(){
+        console.log("Heloo js")
+    }
+
+output
+   Heloo js                            script.js: 9
+   undefined                           script.js:3 
+   function getName(){                 script.js:4
+    console.log("Heloo js")
+    }
+
+------------------------------------------------------------   
+
+
+getName()
+console.log(x)
+console.log(getName)
+
+
+var x = 7;
+
+    function getName(){
+        console.log("Heloo js")
+    }
+
+output
+   Heloo js                            script.js: 9
+   undefined                           script.js:3 
+   function getName(){                 script.js:4
+    console.log("Heloo js")
+    }
+
+-------------------------------------------------------------------
+
+get name oru arrow function aanakilo 
+
+getName()
+console.log(x)
+console.log(getName)
+
+
+var x = 7;
+
+    var getName = ()=>{
+        console.log("Heloo js")
+    }
+
+output
+    Uncaught TypeError: getName is not a function
+    at script.js:2:1
+
+Now here getName does not behave like a function behave like a varriable
+
+-----------------------------------------------------------------------------------
+
+
+getName()
+console.log(x)
+console.log(getName)
+
+
+var x = 7;
+
+
+    function getName2(){
+        console.log("Heloo js")
+    }
+
+    var getName3 = function () {
+
+    }
+
+    var getName = ()=>{
+        console.log("Heloo js")
+    }
+
+output
+
+    ithil manasilakandath function getName2 behave like a function
+    but arrow functionil eyuthiya getName behave like a varriable so athyam thanney value undefined
+    getName3 angahney function eyuthiyalum just behave like a varriable
+
+     function getName2(){
+        console.log("Heloo js")
+    }
+
+    inghaney eyuthiyal mathram function copy aavullu 
+
+    this all known as hoisting  this is the deep way 
+
+    when ever javascrit code run a code execution context will created 

@@ -1,0 +1,224 @@
+
+"Everything in javascript happens inside an Execution Context"
+
+Execution Context it has two components first components also known as Memmory component this is the place all the functions and variables stores as a key value pairs this is also known as variableEnvironment
+                                        the second component of the Execution Context is the code component this the place code exucuted one line at a time so this is the place this is also known as threaded of Execution
+
+variableEnvironment                                          threaded of Execution
+--------------------------------------------------------------------------------
+|   Memmory  component            |  Code component                            |
+-------------------------------------------------------------------------------
+|   Key : value                   |  line of coodes                           |
+-----------------------------------
+|   a:10                          |  line of coodes                            |
+-----------------------------------
+|   fn:{.....}                    |  line of coodes                            |
+--------------------------------------------------------------------------------
+
+
+
+
+
+"javascript is a sychronous single-threaded language"
+
+sychronous single-threaded mean javascript only execute at one time in a specific order its mean once go next line once the current line exucuted 
+
+
+AJAX ?
+
+one Quesstion
+
+What happens when u run javascript program? 
+
+    var n = 2 
+        functions square (num) {
+            var ans = num * num;
+            return ans;
+        }
+    var square2 = square(n);
+    var square4 = square(4)
+
+
+Now lwts check how this whole code run behind the scn
+
+when u run this whole code so a global exection will created we know there is two components Memmoryconmponent and code component
+
+Execution Context created 2 phases first phase is CREATION phase and its also called Memmory creation phase and 2 second phase is code exection phase 
+
+global exucation creating 
+phase 1
+in our code 1 line execution time there var n we know variables all are store memory component so store there and then go to 2 line there is also see a function named square i will allocate to memmory square 
+there a value store its undefined  in the fist phase undefined ia s place holder is a special key word in javascript 
+and in case of function the function inside full code litrally you can asume it copied square function  in to the memmory space
+
+
+--------------------------------------------------------------------------------
+|   Memmory  component            |  Code component                            |
+-------------------------------------------------------------------------------
+|   n : undefined                 |                                            |
+|   square {...}                  |                                            |
+|   square2 :undefined            |                                            |
+|   square4 :undefined            |                                            |
+--------------------------------------------------------------------------------
+
+
+phase 2 
+
+This is the code exection phase now lets see the code after the memmory allocation
+now n : undefined replace to 2 after this go line 2 line 2 to line 5 there is nothing to do then moves to the line number 6 
+so line number 6 is the most amazing part here we invoke the function when u run a function or invoke a function  a brand new execution will created   
+
+
+--------------------------------------------------------------------------------
+|   Memmory  component            |  Code component                            |
+-------------------------------------------------------------------------------
+|   n : 2                         |                                            |
+|   square {...}                  |                                            |
+|   square2 :undefined            |                                            |
+|   square4 :undefined            |                                            |
+--------------------------------------------------------------------------------
+
+function will come code component inside a new context create
+
+here also phase one memmory allocation 
+
+
+
+--------------------------------------------------------------------------------
+|   Memmory  component            |  Code component                            |
+-------------------------------------------------------------------------------
+|   n : 2                         |     ---------------------------------      |
+|   square {...}                  |     | Memmory          |  Code       |     |
+|   square2 :undefined            |     ---------------------------------      |
+|   square4 :undefined            |     | num : undefined  |             |     |
+|                                 |     | ans : undefined  |             |     |
+                                         ---------------------------------                
+--------------------------------------------------------------------------------
+
+phase 2 
+
+this is code phase 
+here we exicuting each line 
+here our code num value 2 pass the num here num parameter n is argument  
+now num 2 then next line line 3 here its  like code executing code inside code block 
+here num * num what ever the value go to the memmory ans undefined replace the value 
+the next line there is return ans; this mean your work is done returnthe all the execution controll back the execution context where the function was invoked
+return mean retun the control where the function invoked 
+hre return ans ans value now 4 that ans 4 go to the invoked place that global square 2 so square 2 value undefined replace to 4 
+now go line 7 
+thats also function so code component inside create new Execution context so look bottom
+
+
+--------------------------------------------------------------------------------
+|   Memmory  component            |  Code component                            |
+-------------------------------------------------------------------------------
+|   n : 2                         |     ---------------------------------      |
+|   square {...}                  |     | Memmory          |  Code       |     |
+|   square2 : 4                   |     ---------------------------------      |
+|   square4 :undefined            |     | num : 2          | num * num   |     |           
+|                                 |     | ans : 4          |  return ans |     |
+                                         ---------------------------------                
+--------------------------------------------------------------------------------
+
+
+here
+phase 1 memmory component
+
+
+|---------------------------------|--------------------------------------------|
+|   Memmory  component            |  Code component                            |
+|---------------------------------|--------------------------------------------|
+|   n : 2                         |     ---------------------------------      |
+|   square {...}                  |     | Memmory          |  Code       |     |
+|   square2 : 4                   |     ---------------------------------      |
+|   square4 :undefined            |     | num : 2          | num * num   |     |           
+|                                 |     | ans : 4          |  return ans |     |
+|                                 |       ---------------------------------    |      
+|                                 |                                            |
+|                                 |                                            |
+|                                 |     ---------------------------------      |
+|                                 |     | Memmory          |  Code      |      |
+|                                 |     ---------------------------------      |
+|                                 |     | num : undefined  |            |      |
+|                                 |     | ans : undefined  |            |      |
+|                                 |     ---------------------------------      |
+-------------------------------------------------------------------------------|
+
+here 
+phase code code phase
+
+
+|------------------------------------------------------------------------------|
+|   Memmory  component            |  Code component                            |
+|------------------------------------------------------------------------------|
+|   n : 2                         |     ---------------------------------      |
+|   square {...}                  |     | Memmory          |  Code       |     |
+|   square2 : 4                   |     ---------------------------------      |
+|   square4 :16                   |     | num : 2          | num * num   |     |           
+|                                 |     | ans : 4          | return ans  |     |
+|                                 |     |--------------------------------|     | 
+|                                 |                                            |
+|                                 |                                            |
+|                                 |     ---------------------------------      |
+|                                 |     | Memmory          |  Code      |      |
+|                                 |     ---------------------------------      |
+|                                 |     | num : undefined  | num * num  |      |
+|                                 |     | ans : undefined  | return ans |      |
+|                                 |     |-------------------------------|      |
+|------------------------------------------------------------------------------|
+
+now not next line now whole global execution will also delete
+
+this is Call stack
+
+What is callStack ?
+
+call stack is a like a stack it is a stack every time the bottom of the stack we have our global execution context 
+this mean any js run the call stack populated with this global exection context this whole exection context pushed in to the stack  
+when ever new exectution create its top E1, E2, E3 .....  
+when E1 executio complete E1 change to E2 afte complete then go to global
+
+this call satack only for managing this execution  context when ever exection will create push to the stack when ever executio context deleted it will move out of the stack 
+this whole controll managing after the all are executed the call stack will empty the globalexucution also gone  and we are done javascript program
+
+
+|                  |                                                                   
+|                  |
+|                  |
+|                  |
+|                  |
+|                  |
+|                  |
+|                  |
+|------------------| 
+| E1               |
+|------------------|                  
+| Global exucation |
+|------------------|
+
+when E1 executio complete E1 change to E2
+
+|                  |
+|                  |
+|                  |
+|                  |
+|                  |
+|                  |
+|                  |
+|                  |
+|------------------| 
+| E               |
+|------------------|                  
+| Global exucation |
+|------------------|
+
+
+"Call stack maintains the order of exectution of exectution contexts"
+call stack also known as :
+1 - Execution context stack
+2 - program stack
+3 - Control stack
+4 - Runtime stack
+5 - Machine stack
+
+

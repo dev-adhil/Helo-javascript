@@ -1,0 +1,50 @@
+
+Yo go in the console and write you can see something
+U can see there thats like big object with lot of functions and methods
+this function and methods are related javascript engine and in to the global space you can this access any where in the javascript program
+
+just like this window javascript engine also creates this key word
+In the global level this this point to the window  object 
+
+What is window?
+window actually a global object which is created along with the global execution context 
+whenever any javascript program run a global object is created a global execution context will created and along with the execution context at this keyword will created 
+
+now lets discuss more about glbal object 
+
+In the globl object in this case in case of brosers it is know as window javascript not just run in brwosers only javascript also run server and lot of devices and places not a just browser running in it 
+and where ever javascript running must be a javascript engine there just like chrome its V8 mozillafirefox  there hexon firefox there also hexon allthe javascript engine resposibility is to create object
+In case of brwsers it is know as windows in case of node itsknown as something else where ever you run javascript program its diffrent but there is always global object created even tho the file is empty javascript engine ceate the object 
+And at the global level or at the base level in the global execution context this this equal equal o window object  this ==== window u can see its true console just type
+
+What is global space ? 
+global space is nothing but any code u write in javascriptwhich is not inside a function
+    eg: 
+        var a = 10
+        function b(){
+
+        }
+    this is inside global space 
+    but if i create any variable or function inside any function 
+        
+    eg :
+        function b(){
+            var x = 10;
+        }
+    function inside x is not global spce other wise everything you see on the toplevel it is the glbal space simply anything is not inside a function is global space
+
+when ever u create any variable or functions in the global space What happends this varriable and function attached to the global object 
+what was a global object it was window if we write console window there we can see we created variables and functions but inside function variables not show 
+
+ var a = 10
+        function b(){
+            var x = 10;
+        }
+
+how we can access this just console.log(window.a);or console.log(window.a); or console.log(a);  this all are same memmory space window or this 
+now we get 10
+
+if we console x there we get error : x is not defined 
+
+
+
