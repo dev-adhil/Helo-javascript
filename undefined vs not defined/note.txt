@@ -1,50 +1,105 @@
 
-Yo go in the console and write you can see something
-U can see there thats like big object with lot of functions and methods
-this function and methods are related javascript engine and in to the global space you can this access any where in the javascript program
+The javascript code is executed ina  diffrent ways it create global execution context and allocate memmory to the variables and functions even before a single code executed
 
-just like this window javascript engine also creates this key word
-In the global level this this point to the window  object 
+var a = 10
+Suppose we create a varriable a = 7 even before the line of code exicuted javascript try to allocate memmory to this a memmory space to a even before the line of code run 
+the javascript has alredy memmory allocated to the a so we have alredy reserved memmory for a now at this point we try to in the consoler try to log what is a 
+it is undefined So why this happends so when it allocates the memmory to all variable and function to the variables it tries to put placeholder it is like placeholder which is placed in the memmory tha special word is undefined 
+undefined like taking memmory it is verry deffrent than not defined eg:
+                                                                        var a = 10
+                                                                        console.log(x) now here we not allocate any memmory to here if we run this show error
+                                                                        error is : x is not defined 
+but we have allocate to a if u try to console log a top of variable declare it show undefined
+                                                                                            console.log(a)
+                                                                                            var a = 10
+                                                                                            console.log(a)
+                                                                                            console.log(x)
 
-What is window?
-window actually a global object which is created along with the global execution context 
-whenever any javascript program run a global object is created a global execution context will created and along with the execution context at this keyword will created 
+                                                                                        ouput: undefined                                    script.js: 1
+                                                                                        Uncaught ReffrenceError:  x is not defined          script.js: 3
 
-now lets discuss more about glbal object 
+so remember undefined is not equalto empty some ppls think undefined is empty bcz not taking memmory space its wrong 
+its a special keyword its take memmory u asume it an place holder which kept for time between until the variable asign some other value till thate point it will store placeholder know as undefined
+soppose we never put any vale inside a it is throw out whole program a value is undefined
+                                                                                eg: 
+                                                                                    var a;
+                                                                                    console.log(a)
 
-In the globl object in this case in case of brosers it is know as window javascript not just run in brwosers only javascript also run server and lot of devices and places not a just browser running in it 
-and where ever javascript running must be a javascript engine there just like chrome its V8 mozillafirefox  there hexon firefox there also hexon allthe javascript engine resposibility is to create object
-In case of brwsers it is know as windows in case of node itsknown as something else where ever you run javascript program its diffrent but there is always global object created even tho the file is empty javascript engine ceate the object 
-And at the global level or at the base level in the global execution context this this equal equal o window object  this ==== window u can see its true console just type
+we try another 
 
-What is global space ? 
-global space is nothing but any code u write in javascriptwhich is not inside a function
+     eg: 
+         var a;
+        console.log(a)    
+
+        if (a === undefined){
+            console.log("a is undefined)  
+        }
+        else {
+            console.log("a is not undefined)
+        }        
+
+    ouput:
+        a is undefined     
+
     eg: 
-        var a = 10
-        function b(){
+         var a;
+        console.log(a)   
 
+        a = 10 
+
+        if (a === undefined){
+            console.log("a is undefined)  
         }
-    this is inside global space 
-    but if i create any variable or function inside any function 
-        
-    eg :
-        function b(){
-            var x = 10;
-        }
-    function inside x is not global spce other wise everything you see on the toplevel it is the glbal space simply anything is not inside a function is global space
+        else {
+            console.log("a is not undefined)
+        } 
 
-when ever u create any variable or functions in the global space What happends this varriable and function attached to the global object 
-what was a global object it was window if we write console window there we can see we created variables and functions but inside function variables not show 
-
- var a = 10
-        function b(){
-            var x = 10;
-        }
-
-how we can access this just console.log(window.a);or console.log(window.a); or console.log(a);  this all are same memmory space window or this 
-now we get 10
-
-if we console x there we get error : x is not defined 
+    ouput:
+        a is not undefined       
 
 
+javascript is loosly type language 
+loosly type mean javascript does not attached its variable to any specific data type 
+    Suppose if i  create  a put in  string in it so later on the program i can put numbers of program and also put boolien in it javascript like verry flexible in this case it is loosly type
+    this is called loosly type 
 
+   eg: 
+         var a;
+        console.log(a)   
+
+        a = 10 
+        console.log(a)
+
+        a = "heloo"
+        console.log(a)
+    ouput:
+          undefined
+          10
+          heloo  
+ this is called loosly language also called weaklylanguage  this is not weak this is most beautiful and flexible 
+
+
+    if tightly type eg c++ it all tightly tightly mean if it string type only allow sting values it not hold number or boolien 
+
+heloo  important never do this
+
+ a = undefined this is never do this this is a mistake and bad thing of javascript
+    this is not good practice
+    eg: 
+            var a;
+            console.log(a)   
+
+            a = 10 
+            console.log(a)
+
+            a = "heloo"
+            console.log(a)
+
+            a = undefined
+        ouput:
+            undefined
+            10
+            heloo  
+ so what is undefined?
+  undefined like a placeholder which is kept inside the varriables ans its state that in the whole code that we readle that not asigned anything its made for specific purpose
+    

@@ -1,0 +1,32 @@
+
+"let & const declarations are Hoisted"  this are temporal dead zone for the time be
+this two are comparing verry deffrent in var declaration 
+
+console.log(b)
+let a = 10;
+var b = 100
+
+we know we want  be access b without even declaring initilising in it that happen but in javascriptvery difrently so the memmory allocated varriables and functions even before a single of code exicuted
+ok thats why even before setting a value of 100 in to beven declaring a variable bwe can access like this and we dont get any error even fact we get special
+palceholder undefined isntit that was Hoisting we know that
+
+console.log(a)
+let a = 10;
+var b = 100
+
+now we get error
+    output
+        Uncaught ReferenceError: Cannot access 'a' before initialization
+    at script6.js:2:13
+
+this error telling u can only access this a after u have insializesome value to the variable a so tha mean we do consolelog after some time we put in to the value thatwe are able to ace it 
+but how to know whether the varriable hoisted or not 
+
+let a = 10;
+console.log(a)
+var b = 100
+
+output :
+    10 
+
+    

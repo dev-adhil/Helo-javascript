@@ -1,0 +1,87 @@
+
+function a(){
+    console.log(b)
+}
+var b = 10;
+a();
+
+output:
+    10
+
+-----------------------------------------------------
+
+
+function a(){
+
+    var b = 10;
+    c()
+    function c(){
+        
+    }
+}
+a();
+console.log(b)
+
+output:
+    script5.js:11 Uncaught ReferenceError: b is not defined
+    at script5.js:11:13
+
+first thing we chech what is the scope of this varriable b that mean where can i acess the varriable b that is scope and 
+other check is b inside the scope of function c thats mean can i acess the binside c so there two way located 
+1- what is the scope of varriable b 
+2- is b inside scope of function ppls use diffrent ways we use same ways 
+
+scope is directly depend on the lexical environment now lets check whats lexical environment
+
+when ever a exicution context created a lexical environment also created lexical environment is the local memmoryalong with the lexical environmentof its parent 
+lexical environment is a local memmory along with the lexical environment of its parent 
+lexical mean hirarchy or in a sequence 
+
+lets see top code c function lexicaly inside a function that mean lexical in order in hirarchy  
+which is and code term assume it to be where that specific code is present physically inside the code so here c function present physically inside a() 
+that means lexicaly inside a() and a() is lexicaly inside the global scope so this is know as lexical
+
+when i say lexical environment that mean the local memmory along with lexical environment of the parrent 
+
+lets explain more 
+
+when execution context created you also get Reference to the lexical environment of its parent along with the memmory space along with varriable and functions this memmory space you also get reffrence of thelexical environment of the parent
+
+
+Call Stack (C)
+  |
+  V
+-----------------------------------------------------------
+|  | Mem.     | Code                                    |  |
+|  |----------|-----------------------------------------|  |
+|  |          |                                         |  |
+|  |          |                                         |  |
+|  |----------|-----------------------------------------|  |
+|  | Mem.     | Code                                    |  |
+|  |----------|-----------------------------------------|  |
+|  | (b: 10  |                                         |  |  <--- (round marking)
+|  |  c: {...})                                         |  |
+|  | [====]   |                                         |  |  <--- shaded box inside round marking
+|  |----------|-----------------------------------------|  |
+|  | Memory   | Code                                    |  |
+|  |----------|-----------------------------------------|  |
+|  | (a: {...})                                         |  |  <--- (round marking)
+|  | [====]   | Global EC ------> null                  |  |  <--- shaded box inside round marking
+|  |----------|-----------------------------------------|  |
+|                            Code                       |
+|                ----------------------------              |
+-----------------------------------------------------------
+      ↑
+      a()
+[====]  ith aan parent refrence 
+
+we can rewise 
+what is lexical environment?
+lexical environment is created when ever an execution context is created and lexical environment is local memmory + reffrence to the lexical environment of parent 
+parent means lexical parent which mean where actually that function sits inside the code thats mean c is lexicaly inside a c lexical parent a a lexical parent gli
+this whole chain of lexical environment is known as scope chain  and it defines wheather a varriable or function present inside the scope or not 
+if the scope chain exuasted and varriable is not found that means not inside the scope chain
+
+this importent scopechain 
+
+so what was the lexical environment of a lexical environment a is local memmory of a along with the lexical environmentof the parent parent was global so local memmory + lexical environment of parrent

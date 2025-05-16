@@ -1,13 +1,5 @@
 
-getName()
-console.log(x)
-console.log(getName)
+var a = 7;
 
-
-var x = 7;
-
-    var getName = ()=>{
-        console.log("Heloo js")
-    }
 
 
